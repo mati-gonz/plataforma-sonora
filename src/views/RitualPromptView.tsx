@@ -1,7 +1,6 @@
 // src/views/RitualPromptView.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CircleButton from "../components/CircleButton";
 import PromptInput from "../components/PromptInput";
 import LoadingOverlay from "../components/LoadingOverlay";
 import SoundList from "../components/SoundList";
@@ -11,8 +10,8 @@ import "./RitualPromptView.css";
 const RitualPromptView: React.FC = () => {
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
-  const [sounds, setSounds] = useState([]);
-  const [selectedSound, setSelectedSound] = useState(null);
+  const [sounds, setSounds] = useState<string[]>([]);
+  const [selectedSound, setSelectedSound] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleGenerateClick = async () => {
@@ -29,7 +28,7 @@ const RitualPromptView: React.FC = () => {
         },
       );
       const data = await response.json();
-      setSounds([...sounds, data.sound_url]); // Cambia a `sound_url` según la respuesta del backend
+      setSounds([...sounds, data.sound_url]);
     } catch (error) {
       console.error("Error al generar sonido:", error);
     } finally {
@@ -42,7 +41,7 @@ const RitualPromptView: React.FC = () => {
   };
 
   const handleTitleClick = () => {
-    navigate("/"); // Redirige al LandingPage
+    navigate("/");
   };
 
   return (
