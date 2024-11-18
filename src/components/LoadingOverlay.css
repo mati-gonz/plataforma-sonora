@@ -28,8 +28,9 @@
 .loading-message-image {
   height: auto;
   width: auto;
-  max-width: 45rem;
-  opacity: 0.5;
+  max-width: 38rem;
+  opacity: 0.3;
+  mix-blend-mode: lighten; /* Integra los colores con el fondo */
 }
 
 .loading-message-text {
@@ -40,7 +41,7 @@
 .loading-message-text h3 {
   margin-top: 0; /* Ajusta la posición del texto */
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 500;
   color: white; /* Color del texto */
 }
 
@@ -63,6 +64,6 @@
   }
 
   .loading-message-image {
-    max-width: 30rem; /* Ancho máximo reducido */
+    max-width: 23rem; /* Ancho máximo reducido */
   }
 }
