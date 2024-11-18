@@ -1,0 +1,50 @@
+/* src/components/SoundItem.css */
+.sound-item {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 100%; /* Usa todo el ancho disponible */
+  max-height: 6rem;
+  padding: 0.8rem; /* Aumenta un poco el padding para mejor espacio visual */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sound-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sound-item img {
+  width: 7rem; /* Tamaño constante para la imagen */
+  height: auto;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.2rem; /* Tamaño un poco mayor para destacar el título */
+  font-weight: 300;
+}
+
+p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sound-item button {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sound-item button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
+}

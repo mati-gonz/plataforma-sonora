@@ -28,7 +28,7 @@ const RitualPromptView: React.FC = () => {
         },
       );
       const data = await response.json();
-      setSounds([...sounds, data.sound_url]);
+      setSounds([...sounds, data.sound_url]); // Añade la URL del nuevo sonido
     } catch (error) {
       console.error("Error al generar sonido:", error);
     } finally {
@@ -58,7 +58,6 @@ const RitualPromptView: React.FC = () => {
           />
           <div className="prompt-inspiration">
             <p>¿Te falta inspiración? Mira estos ejemplos:</p>
-            <br />
             <ul>
               <li>
                 -{" "}
@@ -81,7 +80,14 @@ const RitualPromptView: React.FC = () => {
         </div>
       </div>
       {loading && <LoadingOverlay />}
-      {selectedSound && <SoundPlayer sound={selectedSound} />}
+      {selectedSound && (
+        <SoundPlayer
+          selectedSound={selectedSound}
+          indexOfSelectedSound={
+            selectedSound ? sounds.indexOf(selectedSound) : -1
+          }
+        />
+      )}
     </div>
   );
 };

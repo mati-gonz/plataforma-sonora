@@ -1,10 +1,11 @@
 // src/components/SoundList.tsx
 import React from "react";
 import SoundItem from "./SoundItem";
+import "./SoundList.css";
 
 interface SoundListProps {
-  sounds: Array<any>;
-  onSelectSound: (sound: any) => void;
+  sounds: Array<string>; // Array de URLs
+  onSelectSound: (sound: string) => void;
 }
 
 const SoundList: React.FC<SoundListProps> = ({ sounds, onSelectSound }) => {
@@ -14,6 +15,7 @@ const SoundList: React.FC<SoundListProps> = ({ sounds, onSelectSound }) => {
         <SoundItem
           key={index}
           sound={sound}
+          soundNumber={index + 1}
           onSelect={() => onSelectSound(sound)}
         />
       ))}
