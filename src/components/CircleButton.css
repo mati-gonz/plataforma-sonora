@@ -1,0 +1,21 @@
+/* src/components/CircleButton.css */
+.circle-button {
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-image {
+  width: 100%;
+  height: 100%;
+}
+
+.button-text {
+  position: absolute;
+  color: white;
+  text-align: center;
+}

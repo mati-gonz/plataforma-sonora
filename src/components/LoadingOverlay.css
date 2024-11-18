@@ -1,0 +1,31 @@
+/* src/components/LoadingOverlay.css */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Asegura que esté al frente de otros elementos */
+    color: white;
+  }
+  
+  .loading-message {
+    text-align: center;
+  }
+  
+  .loading-message h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .loading-message p {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 300px;
+  }
+  

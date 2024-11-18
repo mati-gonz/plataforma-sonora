@@ -1,0 +1,23 @@
+/* src/views/LandingPage.css */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    row-gap: 7rem;
+    min-height: 100vh;
+    background-image: url('../assets/landing.gif'); /* Fondo animado */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    font-family: 'Manifold_CF', sans-serif;
+  }
+  
+  .landing-title {
+    margin-top: 17rem;
+    font-size: 13rem;
+    font-weight: 700;
+  }
+  

@@ -1,0 +1,77 @@
+.ritual-prompt-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../assets/landing.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: 'Manifold_CF', sans-serif;
+  padding: 2rem;
+  position: relative;
+  z-index: 0; /* Asegura que el contenedor principal tenga un z-index base */
+}
+
+.ritual-prompt-view::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad aquí */
+  pointer-events: none; /* Asegura que no interfiera con el contenido */
+  z-index: -1; /* Coloca la capa de opacidad detrás del contenido */
+}
+
+.title,
+.content-container {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté por encima de la capa de opacidad */
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  margin: 0;
+}
+
+.content-container {
+  display: flex;
+  width: 100%;
+  max-width: 95rem;
+  margin-top: 8rem; /* Espacio adicional para separar el contenido del título */
+}
+
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 2rem;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 2rem;
+  min-height: 18.75px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.prompt-inspiration {
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: white;
+  text-align: left;
+  line-height: 1.5;
+  margin-top: 1rem;
+}

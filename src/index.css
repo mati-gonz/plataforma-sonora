@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fuentes personalizadas */
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Demi_Bold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Extra_Bold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manifold_CF';
+  src: url('./fonts/fonnts.com-Manifold_CF_Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
