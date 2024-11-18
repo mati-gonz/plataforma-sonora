@@ -1,23 +1,41 @@
 /* src/views/LandingPage.css */
 .landing-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    row-gap: 7rem;
-    min-height: 100vh;
-    background-image: url('../assets/landing.gif'); /* Fondo animado */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    text-align: center;
-    font-family: 'Manifold_CF', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  row-gap: 7rem;
+  min-height: 100vh;
+  background-image: url('../assets/landing.gif'); /* Fondo animado */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  font-family: 'Manifold_CF', sans-serif;
+}
+
+.landing-title {
+  margin-top: 17rem;
+  font-size: 13rem;
+  font-weight: 700;
+}
+
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 0 1rem; /* Espaciado interno para dispositivos pequeños */
+    row-gap: 3rem; /* Reducir espacio entre elementos */
   }
-  
+
   .landing-title {
-    margin-top: 17rem;
-    font-size: 13rem;
-    font-weight: 700;
+    margin-top: 12rem;
+    font-size: 4rem; /* Tamaño de fuente reducido para pantallas pequeñas */
   }
-  
+
+  .circle-button {
+    width: 100px;
+    height: 100px;
+    font-size: 1rem; /* Ajusta el tamaño del texto en el botón */
+  }
+}

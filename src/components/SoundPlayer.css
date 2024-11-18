@@ -64,3 +64,38 @@
 .player-button.share {
     font-size: 1.3rem;
 }
+
+@media (max-width: 768px) {
+    .sound-player {
+        width: 90%;
+        bottom: 1rem;
+    }
+
+    .player-thumbnail img {
+        width: 5rem;
+    }
+
+    .player-controls {
+        gap: 0.5rem;
+    }
+
+    .player-info {
+        font-size: 0.8rem;
+    }
+
+    .player-time {
+        font-size: 0.9rem;
+    }
+
+    .player-button {
+        font-size: 1.2rem;
+    }
+
+    .player-button.download {
+        font-size: 1rem;
+    }
+
+    .player-button.share {
+        font-size: 1rem;
+    }
+}

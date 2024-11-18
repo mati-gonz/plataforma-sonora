@@ -75,3 +75,84 @@
   line-height: 1.5;
   margin-top: 1rem;
 }
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
+  .ritual-prompt-view {
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    top: 1rem;
+    left: 6rem;
+    transform: translateX(-50%);
+    margin: 0 auto;
+  }
+
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    width: 100%;
+  }
+
+  .left-column {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .prompt-inspiration {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .right-column {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-left: none;
+  }
+
+  .prompt-input {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+
+  .prompt-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .generate-button {
+    width: auto;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  .sound-list {
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+  .sound-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .sound-item img {
+    width: 50px;
+    height: 50px;
+  }
+}

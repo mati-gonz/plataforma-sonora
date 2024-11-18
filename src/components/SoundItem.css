@@ -48,3 +48,27 @@ p {
   background-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 1);
 }
+
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+  .sound-item {
+    max-height: 5rem; /* Altura reducida para dispositivos pequeños */
+  }
+
+  .sound-item img {
+    width: 5rem; /* Tamaño reducido para la imagen */
+  }
+
+  h4 {
+    font-size: 1rem; /* Tamaño de fuente reducido */
+  }
+
+  p {
+    font-size: 0.8rem; /* Tamaño de fuente reducido */
+  }
+
+  .sound-item button {
+    padding: 0.3rem 0.8rem; /* Ajusta el padding del botón */
+    font-size: 0.8rem; /* Tamaño de fuente reducido */
+  }
+}
