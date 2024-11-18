@@ -3,20 +3,47 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background-color: rgba(119, 90, 175, 0.5); /* Fondo con transparencia */
-    border: 0.5px solid #B08FFF;
-    border-radius: 12px;
     position: fixed;
     width: 80%;
     height: 7rem;
+    border-radius: 12px;
+    border: 1px solid #B08FFF;
     z-index: 10;
     bottom: 6rem;
+    overflow: hidden; /* Asegura que el pseudo-elemento no sobresalga */
 }
+
+.sound-player::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #775AAF;
+    opacity: 0.6; /* Controla la opacidad del fondo */
+    z-index: 0; /* Coloca el fondo detrás del contenido */
+    border-radius: 12px; /* Asegura que el borde redondeado se aplique también aquí */
+}
+
+.player-center,
+.player-right {
+    position: relative; /* Asegura que el contenido esté sobre el fondo */
+    z-index: 1; /* Coloca el contenido sobre el fondo */
+}
+
+.player-left {
+    margin-right: -7rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative; /* Asegura que el contenido esté sobre el fondo */
+    z-index: 1; /* Coloca el contenido sobre el fondo */
+  }
 
 .player-thumbnail img {
     width: 11rem;
     height: auto;
-    z-index: 20;
 }
 
 .player-info {
@@ -24,55 +51,76 @@
     margin-left: 1rem;
     color: white;
     font-family: "Manifold_CF", sans-serif;
-    z-index: 20;
 }
 
 .player-time {
     font-size: 1.4rem;
-    z-index: 20;
+}
+
+.player-center {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.player-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .player-controls {
     display: flex;
     align-items: center;
     gap: 1rem;
-    z-index: 20;
 }
 
 .player-button {
     background: none;
     border: none;
-    color: white;
+    color: #B08FFF;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.2s;
-    z-index: 20;
+    transition: transform 0.2s, color 0.2s ease-in-out;
 }
 
 .player-button:hover {
     transform: scale(1.2);
+    color: #D5AFFF;
 }
 
 .player-button:focus {
     outline: none;
+    color: #FFF;
 }
 
 .player-button.download {
     font-size: 1.3rem;
+    color: #B08FFF;
 }
 
 .player-button.share {
     font-size: 1.3rem;
+    color: #B08FFF;
+}
+
+.player-button.repeat {
+    font-size: 1.5rem;
+    color: #B08FFF;
+}
+  
+.player-button.repeat.active {
+    color: #D5AFFF; /* Mantiene el color activo consistente */
 }
 
 @media (max-width: 768px) {
     .sound-player {
-        width: 90%;
+        width: 95%;
         bottom: 1rem;
     }
 
     .player-thumbnail img {
-        width: 5rem;
+        width: 4rem;
     }
 
     .player-controls {
@@ -98,4 +146,18 @@
     .player-button.share {
         font-size: 1rem;
     }
+    .player-left {
+        margin-right: 0rem;
+        gap: 0.1rem;
+      }
+    .player-center {
+        gap: 1rem;
+    }
+    .player-right {
+        gap: 0.5rem;
+    }
+    .player-button.repeat {
+        font-size: 1rem;
+        color: #B08FFF;
+    }    
 }

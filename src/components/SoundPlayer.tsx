@@ -1,5 +1,14 @@
 import React, { useRef, useState } from "react";
 import "./SoundPlayer.css";
+import {
+  FaStepBackward,
+  FaStepForward,
+  FaPlay,
+  FaPause,
+  FaDownload,
+  FaShareAlt,
+  FaSync,
+} from "react-icons/fa";
 import { getImageForSound } from "../utils/soundUtils";
 
 interface SoundPlayerProps {
@@ -14,6 +23,7 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("00:00");
   const [duration, setDuration] = useState("00:00");
+  const [isRepeating, setIsRepeating] = useState(false); // Estado para repetir
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const image = getImageForSound(indexOfSelectedSound);
@@ -34,6 +44,13 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({
         audioRef.current.play();
       }
       setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleRepeat = () => {
+    setIsRepeating(!isRepeating);
+    if (audioRef.current) {
+      audioRef.current.loop = !audioRef.current.loop; // Alterna la propiedad loop
     }
   };
 
@@ -83,25 +100,39 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({
         onTimeUpdate={updateCurrentTime}
         onLoadedMetadata={onLoadedMetadata}
       ></audio>
-      <div className="player-thumbnail">
-        <img src={image} alt="Sound thumbnail" className="player-thumbnail" />
+      <div className="player-left">
+        <div className="player-thumbnail">
+          <img src={image} alt="Sound thumbnail" />
+        </div>
+        <div className="player-info">
+          <p className="player-time">
+            {currentTime} / {duration}
+          </p>
+        </div>
       </div>
-      <div className="player-info">
-        <p className="player-time">
-          {currentTime} / {duration}
-        </p>
-      </div>
-      <div className="player-controls">
-        <button className="player-button prev">&#x23EE;</button>
-        <button className="player-button play" onClick={togglePlay}>
-          {isPlaying ? "⏸" : "▶"}
+      <div className="player-center">
+        <button
+          className={`player-button repeat ${isRepeating ? "active" : ""}`}
+          onClick={toggleRepeat}
+        >
+          <FaSync />
         </button>
-        <button className="player-button next">&#x23ED;</button>
+        <button className="player-button prev">
+          <FaStepBackward />
+        </button>
+        <button className="player-button play" onClick={togglePlay}>
+          {isPlaying ? <FaPause /> : <FaPlay />}
+        </button>
+        <button className="player-button next">
+          <FaStepForward />
+        </button>
+      </div>
+      <div className="player-right">
         <button className="player-button download" onClick={handleDownload}>
-          ⬇️
+          <FaDownload />
         </button>
         <button className="player-button share" onClick={handleShare}>
-          🔗
+          <FaShareAlt />
         </button>
       </div>
     </div>
