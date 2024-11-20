@@ -12,21 +12,21 @@ import {
 import { getImageForSound } from "../utils/soundUtils";
 
 interface SoundPlayerProps {
-  selectedSound: string; // URL del sonido
-  indexOfSelectedSound: number; // Índice del sonido seleccionado
+  sounds: string[]; // Lista de canciones (URLs)
+  initialIndex: number; // Índice inicial
 }
 
-const SoundPlayer: React.FC<SoundPlayerProps> = ({
-  selectedSound,
-  indexOfSelectedSound,
-}) => {
+const SoundPlayer: React.FC<SoundPlayerProps> = ({ sounds, initialIndex }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("00:00");
   const [duration, setDuration] = useState("00:00");
-  const [isRepeating, setIsRepeating] = useState(false); // Estado para repetir
+  const [isRepeating, setIsRepeating] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const lastClickRef = useRef<number | null>(null); // Almacena el timestamp del último clic en "Atrás"
 
-  const image = getImageForSound(indexOfSelectedSound);
+  const selectedSound = sounds[currentIndex];
+  const image = getImageForSound(currentIndex);
 
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
@@ -50,7 +50,7 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({
   const toggleRepeat = () => {
     setIsRepeating(!isRepeating);
     if (audioRef.current) {
-      audioRef.current.loop = !audioRef.current.loop; // Alterna la propiedad loop
+      audioRef.current.loop = !audioRef.current.loop;
     }
   };
 
@@ -69,7 +69,7 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = selectedSound;
-    link.download = `ritual_sound_${indexOfSelectedSound + 1}.mp3`;
+    link.download = `ritual_sound_${currentIndex + 1}.mp3`;
     link.click();
   };
 
@@ -89,6 +89,30 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({
       alert(
         "La funcionalidad de compartir no está disponible en este navegador.",
       );
+    }
+  };
+
+  const handlePrev = () => {
+    const now = Date.now();
+
+    if (audioRef.current && audioRef.current.currentTime > 5) {
+      // Reinicia la canción si el tiempo actual es mayor a 5 segundos
+      audioRef.current.currentTime = 0;
+    } else if (lastClickRef.current && now - lastClickRef.current < 500) {
+      // Si el segundo clic en "Atrás" ocurre en menos de 500ms, retrocede a la canción anterior
+      if (currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+        setIsPlaying(false); // Detén la reproducción al cambiar de canción
+      }
+    }
+
+    lastClickRef.current = now;
+  };
+
+  const handleNext = () => {
+    if (currentIndex < sounds.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setIsPlaying(false); // Detén la reproducción al cambiar de canción
     }
   };
 
@@ -117,13 +141,17 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({
         >
           <FaSync />
         </button>
-        <button className="player-button prev">
+        <button className="player-button prev" onClick={handlePrev}>
           <FaStepBackward />
         </button>
         <button className="player-button play" onClick={togglePlay}>
           {isPlaying ? <FaPause /> : <FaPlay />}
         </button>
-        <button className="player-button next">
+        <button
+          className="player-button next"
+          onClick={handleNext}
+          disabled={currentIndex >= sounds.length - 1} // Desactiva si no hay más canciones
+        >
           <FaStepForward />
         </button>
       </div>

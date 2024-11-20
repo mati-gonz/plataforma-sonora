@@ -1,4 +1,3 @@
-// src/views/RitualPromptView.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PromptInput from "../components/PromptInput";
@@ -11,7 +10,9 @@ const RitualPromptView: React.FC = () => {
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
   const [sounds, setSounds] = useState<string[]>([]);
-  const [selectedSound, setSelectedSound] = useState<string | null>(null);
+  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
+    null,
+  ); // Maneja el índice actual
   const navigate = useNavigate();
 
   const handleGenerateClick = async () => {
@@ -37,7 +38,10 @@ const RitualPromptView: React.FC = () => {
   };
 
   const handleSelectSound = (sound: string) => {
-    setSelectedSound(sound);
+    const index = sounds.indexOf(sound);
+    if (index !== -1) {
+      setCurrentSoundIndex(index); // Actualiza el índice actual en lugar de solo la URL
+    }
   };
 
   const handleTitleClick = () => {
@@ -80,12 +84,10 @@ const RitualPromptView: React.FC = () => {
         </div>
       </div>
       {loading && <LoadingOverlay />}
-      {selectedSound && (
+      {currentSoundIndex !== null && (
         <SoundPlayer
-          selectedSound={selectedSound}
-          indexOfSelectedSound={
-            selectedSound ? sounds.indexOf(selectedSound) : -1
-          }
+          sounds={sounds} // Pasa la lista completa
+          initialIndex={currentSoundIndex} // Pasa el índice inicial
         />
       )}
     </div>
