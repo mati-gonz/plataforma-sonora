@@ -12,6 +12,7 @@
   padding: 2rem;
   position: relative;
   z-index: 0; /* Asegura que el contenedor principal tenga un z-index base */
+  overflow: hidden; /* Previene scroll no deseado en la vista principal */
 }
 
 .ritual-prompt-view::before {
@@ -47,6 +48,9 @@
   width: 100%;
   max-width: 95rem;
   margin-top: 8rem; /* Espacio adicional para separar el contenido del título */
+  overflow-y: auto; /* Habilita scroll interno */
+  flex: 1; /* Permite que se expanda y ocupe el espacio restante */
+  padding-bottom: 9rem;
 }
 
 .left-column {

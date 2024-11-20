@@ -9,7 +9,7 @@
     border-radius: 12px;
     border: 1px solid #B08FFF;
     z-index: 10;
-    bottom: 6rem;
+    bottom: 5rem;
     overflow: hidden; /* Asegura que el pseudo-elemento no sobresalga */
 }
 
@@ -117,6 +117,8 @@
     .sound-player {
         width: 95%;
         bottom: 1rem;
+        height: 9vh;
+        position: fixed;
     }
 
     .player-thumbnail img {
