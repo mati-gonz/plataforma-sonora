@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  row-gap: 7rem;
+  row-gap: 4rem;
   min-height: 100vh;
   background-image: url('../assets/landing.gif'); /* Fondo animado */
   background-size: cover;
@@ -16,9 +16,14 @@
 }
 
 .landing-title {
-  margin-top: 17rem;
+  margin-top: 16rem;
   font-size: 13rem;
   font-weight: 700;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: -2rem;
 }
 
 /* Estilos responsivos para dispositivos móviles */
@@ -31,6 +36,12 @@
   .landing-title {
     margin-top: 12rem;
     font-size: 4rem; /* Tamaño de fuente reducido para pantallas pequeñas */
+  }
+
+  h3 {
+    max-width: 70vw;
+    font-size: 1rem; /* Tamaño de fuente reducido para pantallas pequeñas */
+    margin-top: 0;
   }
 
   .circle-button {

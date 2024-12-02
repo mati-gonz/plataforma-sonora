@@ -13,7 +13,10 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="landing-container">
-      <h1 className="landing-title">ECO AURA</h1>
+      <div className="landing-titles">
+        <h1 className="landing-title">ECO AURA</h1>
+        <h3>IA Generadora de sonidos personalizados para rituales</h3>
+      </div>
       <CircleButton text="Comenzar" size="12rem" onClick={handleButtonClick} />
     </div>
   );
