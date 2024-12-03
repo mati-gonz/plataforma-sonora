@@ -50,7 +50,7 @@ p {
 }
 
 /* Estilos responsivos para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .sound-item {
     max-height: 5rem; /* Altura reducida para dispositivos pequeños */
   }

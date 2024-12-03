@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./SoundPlayer.css";
 import {
   FaStepBackward,
@@ -14,9 +14,14 @@ import { getImageForSound } from "../utils/soundUtils";
 interface SoundPlayerProps {
   sounds: string[]; // Lista de canciones (URLs)
   initialIndex: number; // Índice inicial
+  autoPlay?: boolean;
 }
 
-const SoundPlayer: React.FC<SoundPlayerProps> = ({ sounds, initialIndex }) => {
+const SoundPlayer: React.FC<SoundPlayerProps> = ({
+  sounds,
+  initialIndex,
+  autoPlay = false,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("00:00");
@@ -115,6 +120,25 @@ const SoundPlayer: React.FC<SoundPlayerProps> = ({ sounds, initialIndex }) => {
       setIsPlaying(false); // Detén la reproducción al cambiar de canción
     }
   };
+
+  useEffect(() => {
+    setCurrentIndex(initialIndex); // Cambia al nuevo índice
+  }, [initialIndex]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause(); // Detén la reproducción actual
+      audioRef.current.src = selectedSound; // Cambia la fuente de audio
+      audioRef.current.load(); // Recarga el audio para el nuevo archivo
+
+      if (autoPlay) {
+        audioRef.current.play(); // Reproduce automáticamente si autoPlay está habilitado
+        setIsPlaying(true);
+      } else {
+        setIsPlaying(false);
+      }
+    }
+  }, [selectedSound, autoPlay]);
 
   return (
     <div className="sound-player">

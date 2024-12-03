@@ -9,7 +9,7 @@
     border-radius: 12px;
     border: 1px solid #B08FFF;
     z-index: 10;
-    bottom: 5rem;
+    bottom: 4rem;
     overflow: hidden; /* Asegura que el pseudo-elemento no sobresalga */
 }
 
@@ -55,6 +55,9 @@
 
 .player-time {
     font-size: 1.4rem;
+    width: 8ch; /* El ancho suficiente para "00:00" */
+    text-align: center;
+    display: inline-block;
 }
 
 .player-center {
@@ -113,7 +116,7 @@
     color: #D5AFFF; /* Mantiene el color activo consistente */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .sound-player {
         width: 95%;
         bottom: 1rem;

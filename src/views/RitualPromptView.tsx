@@ -8,6 +8,7 @@ import "./RitualPromptView.css";
 
 const RitualPromptView: React.FC = () => {
   const [prompt, setPrompt] = useState("");
+  const [autoPlay, setAutoPlay] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sounds, setSounds] = useState<string[]>([]);
   const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
@@ -41,6 +42,7 @@ const RitualPromptView: React.FC = () => {
     const index = sounds.indexOf(sound);
     if (index !== -1) {
       setCurrentSoundIndex(index); // Actualiza el índice actual en lugar de solo la URL
+      setAutoPlay(true);
     }
   };
 
@@ -88,6 +90,7 @@ const RitualPromptView: React.FC = () => {
         <SoundPlayer
           sounds={sounds} // Pasa la lista completa
           initialIndex={currentSoundIndex} // Pasa el índice inicial
+          autoPlay={autoPlay}
         />
       )}
     </div>

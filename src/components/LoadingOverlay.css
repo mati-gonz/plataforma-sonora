@@ -53,7 +53,7 @@
 }
 
 /* Estilos responsivos para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .loading-message-text h3 {
     font-size: 2rem; /* Tamaño de fuente reducido */
   }

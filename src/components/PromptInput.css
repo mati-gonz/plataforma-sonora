@@ -37,7 +37,7 @@
     align-self: flex-end;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .prompt-input h2 {
       font-size: 1.5rem;
     }

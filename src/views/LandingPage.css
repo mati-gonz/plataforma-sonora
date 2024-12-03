@@ -27,7 +27,7 @@ h3 {
 }
 
 /* Estilos responsivos para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .landing-container {
     padding: 0 1rem; /* Espaciado interno para dispositivos pequeños */
     row-gap: 3rem; /* Reducir espacio entre elementos */

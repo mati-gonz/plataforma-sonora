@@ -81,7 +81,7 @@
 }
 
 /* Estilos específicos para móviles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .ritual-prompt-view {
     padding: 1rem;
     flex-direction: column;
@@ -113,6 +113,7 @@
     line-height: 1.8;
     margin-top: 0.5rem;
     text-align: center;
+    align-self: center;
   }
 
   .right-column {

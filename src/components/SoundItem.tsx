@@ -36,7 +36,14 @@ const SoundItem: React.FC<SoundItemProps> = ({
       <img src={image} alt="Sound thumbnail" />
       <h4>Ritual {soundNumber}</h4>
       <p>{duration}</p>
-      <button>Reproducir</button>
+      <button
+        onClick={(event) => {
+          event.stopPropagation();
+          onSelect();
+        }}
+      >
+        Reproducir
+      </button>
     </div>
   );
 };
